@@ -13,7 +13,7 @@ function IMC() {
       m = parseFloat(m) / 100;
       kg = parseInt(kg);
   
-      let IMC = kg / Math.pow(m);
+      let IMC = kg / Math.pow(m, 2);
       alert(`El índice de masa corporal es: ${IMC}`);
     }
   }
