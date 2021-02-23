@@ -1,3 +1,23 @@
+function IMC() {
+    let kg = window.prompt("Indica el peso en Kilogramos", "kg");
+    let m = window.prompt("Indica la altura en centímetros", "cm");
+  
+    if (kg == "" || m == "") {
+      alert("Error, no se ha introducido ningún valor");
+    } else if (
+      Number.isNaN(Number.parseInt(kg)) ||
+      Number.isNaN(Number.parseInt(m))
+    ) {
+      alert("Error, debe introducir un valor numérico");
+    } else {
+      m = parseFloat(m) / 100;
+      kg = parseInt(kg);
+  
+      let IMC = kg / Math.pow(m);
+      alert(`El índice de masa corporal es: ${IMC}`);
+    }
+  }
+
 const final = 0;
 let opcion = 1;
 
@@ -28,24 +48,5 @@ while (opcion != final) {
   }
 }
 
-function IMC() {
-  let kg = window.prompt("Indica el peso en Kilogramos", "kg");
-  let m = window.prompt("Indica la altura en centímetros", "cm");
 
-  if (kg == "" || m == "") {
-    alert("Error, no se ha introducido ningún valor");
-  } else if (
-    Number.isNaN(Number.parseInt(kg)) ||
-    Number.isNaN(Number.parseInt(m))
-  ) {
-    alert("Error, debe introducir un valor numérico");
-  } else {
-    m = parseFloat(m);
-    m = m / 100;
-    kg = parseInt(kg);
-
-    let IMC = kg / Math.pow(m);
-    alert(`El índice de masa corporal es: ${IMC}`);
-  }
-}
 
