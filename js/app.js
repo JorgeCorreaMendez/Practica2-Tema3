@@ -31,6 +31,30 @@ function convertFC() {
   }
 }
 
+function camelCase() {
+  let texto = window.prompt("Indica el texto separado por - :");
+  let letraMayuscula = "";
+  let textoSinGuiones = "";
+
+  if (texto == "") {
+    alert("Error, no se ha introducido ningún valor");
+  } else {
+    letraMayuscula = texto.slice(0, 1);
+    textoSinGuiones += letraMayuscula.toUpperCase();
+    for (let i = 1; i < texto.length; i++) {
+      if (texto.slice(i, i + 1) == "-") {
+        letraMayuscula = texto.slice(i + 1, i + 2);
+        console.log(letraMayuscula);
+        textoSinGuiones += letraMayuscula.toUpperCase();
+        i++;
+      } else {
+        textoSinGuiones += texto.slice(i, i + 1);
+      }
+    }
+    alert(textoSinGuiones);
+  }
+}
+
 const final = 0;
 let opcion = 1;
 
@@ -54,6 +78,9 @@ while (opcion != final) {
       break;
     case 2:
       convertFC();
+      break;
+    case 3:
+      camelCase();
       break;
     default:
       alert("Error, esa opción no esta disponible, vuelva a intentarlo");
