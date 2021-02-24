@@ -55,6 +55,49 @@ function camelCase() {
   }
 }
 
+function divisibles() {
+  let nDivisible = window.prompt(
+    "Indica el número del que quieres los divisibles:"
+  );
+  let nInicial = window.prompt("Indica el valor inicial:");
+  let nFinal = window.prompt("Indica el valor final:");
+
+  if (nDivisible == "" || nInicial == "" || nFinal == "") {
+    alert("Error, no se ha introducido ningún valor");
+  } else if (
+    Number.isNaN(Number.parseInt(nDivisible)) ||
+    Number.isNaN(Number.parseInt(nDivisible)) ||
+    Number.isNaN(Number.parseInt(nFinal))
+  ) {
+    alert("Error, debe introducir un valor numérico");
+  } else {
+    parseInt(nDivisible);
+    parseInt(nInicial);
+    parseInt(nFinal);
+    if (nInicial > nFinal) {
+      let intercambioV = nInicial;
+      nInicial = nFinal;
+      nFinal = intercambioV;
+    }
+
+    let nsDivisibles = "";
+
+    for (let i = nInicial; i < nFinal; i++) {
+      if (i % nDivisible == 0) {
+        nsDivisibles += i + ", ";
+      }
+    }
+
+    alert(`Los números divisibles del número ${nDivisible}
+           desde ${nInicial} hasta ${nFinal} son:
+           ${nsDivisibles}`);
+  }
+}
+
+function primos(){
+  
+}
+
 const final = 0;
 let opcion = 1;
 
@@ -81,6 +124,12 @@ while (opcion != final) {
       break;
     case 3:
       camelCase();
+      break;
+    case 4:
+      divisibles();
+      break;
+    case 5:
+      primos();
       break;
     default:
       alert("Error, esa opción no esta disponible, vuelva a intentarlo");
