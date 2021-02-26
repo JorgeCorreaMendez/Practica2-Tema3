@@ -94,8 +94,44 @@ function divisibles() {
   }
 }
 
-function primos(){
-  
+function primos() {
+  let nPrimo = window.prompt("Indica cuántos número primos quieres ver:");
+
+  if (nPrimo == "") {
+    alert("Error, no se ha introducido ningún valor");
+  } else if (Number.isNaN(Number.parseInt(nPrimo))) {
+    alert("Error, debe introducir un valor numérico");
+  } else if (nPrimo < 1 || nPrimo > 168) {
+    alert("Error, fuera de rango");
+  } else {
+    let nsPrimos = "";
+    let cantidad = 0;
+    let contador = 1;
+
+    while (contador <= nPrimo) {
+      let primo = true;
+
+      if (cantidad == 0 || cantidad == 1 || cantidad == 4) {
+        primo = false;
+      }
+
+      for (let x = 2; x < cantidad; x++) {
+        if (cantidad % x == 0) {
+          primo = false;
+        }
+      }
+
+      if (primo) {
+        nsPrimos += cantidad + ", ";
+        contador++;
+      }
+
+      cantidad++;
+    }
+
+    alert(`Estos son los primeros ${nPrimo} primos:
+    ${nsPrimos}`);
+  }
 }
 
 const final = 0;
