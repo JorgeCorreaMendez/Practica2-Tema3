@@ -19,15 +19,15 @@ function IMC() {
 }
 
 function convertFC() {
-  let fahrenheit = window.prompt("Indica los grados ºF a convertir", "ºF");
+  let Fahrenhei = window.prompt("Indica los grados ºF a convertir", "ºF");
 
-  if (fahrenheit == "") {
+  if (Fahrenhei == "") {
     alert("Error, no se ha introducido ningún valor");
-  } else if (Number.isNaN(Number.parseInt(fahrenheit))) {
+  } else if (Number.isNaN(Number.parseInt(Fahrenhei))) {
     alert("Error, debe introducir un valor numérico");
   } else {
-    let Celsius = ((parseInt(fahrenheit) - 32) * 5) / 9;
-    alert(`Los grados ${fahrenheit}°F equivalen a ${Celsius}°C`);
+    let Celsius = ((parseInt(Fahrenhei) - 32) * 5) / 9;
+    alert(`Los grados ${Fahrenhei}°F equivalen a ${Celsius}°C`);
   }
 }
 
@@ -41,16 +41,19 @@ function camelCase() {
   } else {
     letraMayuscula = texto.slice(0, 1);
     textoSinGuiones += letraMayuscula.toUpperCase();
-    for (let i = 1; i < texto.length; i++) {
-      if (texto.slice(i, i + 1) == "-") {
-        letraMayuscula = texto.slice(i + 1, i + 2);
+    let contador = 1;
+    while(contador < texto.length){
+      if (texto.slice(contador, contador + 1) == "-") {
+        letraMayuscula = texto.slice(contador + 1, contador + 2);
         console.log(letraMayuscula);
         textoSinGuiones += letraMayuscula.toUpperCase();
-        i++;
+        contador++;
       } else {
-        textoSinGuiones += texto.slice(i, i + 1);
+        textoSinGuiones += texto.slice(contador, contador + 1);
       }
+      contador++;
     }
+   
     alert(textoSinGuiones);
   }
 }
