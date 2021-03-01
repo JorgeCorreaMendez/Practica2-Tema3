@@ -14,7 +14,7 @@ function IMC() {
     kg = parseInt(kg);
 
     let IMC = kg / Math.pow(m, 2);
-    alert(`El índice de masa corporal es: ${IMC}`);
+    alert(`El índice de masa corporal es: ${IMC.toFixed(2)}`);
   }
 }
 
@@ -27,7 +27,7 @@ function convertFC() {
     alert("Error, debe introducir un valor numérico");
   } else {
     let Celsius = ((parseInt(Fahrenhei) - 32) * 5) / 9;
-    alert(`Los grados ${Fahrenhei}°F equivalen a ${Celsius}°C`);
+    alert(`Los grados ${Fahrenhei}°F equivalen a ${Celsius.toFixed(2)}°C`);
   }
 }
 
@@ -42,10 +42,9 @@ function camelCase() {
     letraMayuscula = texto.slice(0, 1);
     textoSinGuiones += letraMayuscula.toUpperCase();
     let contador = 1;
-    while(contador < texto.length){
+    while (contador < texto.length) {
       if (texto.slice(contador, contador + 1) == "-") {
         letraMayuscula = texto.slice(contador + 1, contador + 2);
-        console.log(letraMayuscula);
         textoSinGuiones += letraMayuscula.toUpperCase();
         contador++;
       } else {
@@ -53,7 +52,7 @@ function camelCase() {
       }
       contador++;
     }
-   
+
     alert(textoSinGuiones);
   }
 }
@@ -91,6 +90,7 @@ function divisibles() {
       }
     }
 
+    nsDivisibles = nsDivisibles.substring(0, nsDivisibles.length - 2);
     alert(`Los números divisibles del número ${nDivisible}
            desde ${nInicial} hasta ${nFinal} son:
            ${nsDivisibles}`);
@@ -98,20 +98,22 @@ function divisibles() {
 }
 
 function primos() {
-  let nPrimo = window.prompt("Indica cuántos número primos quieres ver:");
+  let cantidadPrimos = window.prompt(
+    "Indica cuántos número primos quieres ver:"
+  );
 
-  if (nPrimo == "") {
+  if (cantidadPrimos == "") {
     alert("Error, no se ha introducido ningún valor");
-  } else if (Number.isNaN(Number.parseInt(nPrimo))) {
+  } else if (Number.isNaN(Number.parseInt(cantidadPrimos))) {
     alert("Error, debe introducir un valor numérico");
-  } else if (nPrimo < 1 || nPrimo > 168) {
+  } else if (cantidadPrimos < 1 || cantidadPrimos > 168) {
     alert("Error, fuera de rango");
   } else {
-    let nsPrimos = "";
+    let numerosPrimos = "";
     let cantidad = 0;
     let contador = 1;
 
-    while (contador <= nPrimo) {
+    while (contador <= cantidadPrimos) {
       let primo = true;
 
       if (cantidad == 0 || cantidad == 1 || cantidad == 4) {
@@ -125,15 +127,15 @@ function primos() {
       }
 
       if (primo) {
-        nsPrimos += cantidad + ", ";
+        numerosPrimos += cantidad + ", ";
         contador++;
       }
-
       cantidad++;
     }
 
-    alert(`Estos son los primeros ${nPrimo} primos:
-    ${nsPrimos}`);
+    numerosPrimos = numerosPrimos.substring(0, numerosPrimos.length - 2);
+    alert(`Estos son los primeros ${cantidadPrimos} primos:
+    ${numerosPrimos}`);
   }
 }
 
