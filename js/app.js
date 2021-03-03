@@ -73,9 +73,10 @@ function divisibles() {
   ) {
     alert("Error, debe introducir un valor numérico");
   } else {
-    parseInt(nDivisible);
-    parseInt(nInicial);
-    parseInt(nFinal);
+    nDivisible = parseInt(nDivisible);
+    nInicial = parseInt(nInicial);
+    nFinal = parseInt(nFinal);
+
     if (nInicial > nFinal) {
       let intercambioV = nInicial;
       nInicial = nFinal;
@@ -84,7 +85,7 @@ function divisibles() {
 
     let nsDivisibles = "";
 
-    for (let i = nInicial; i < nFinal; i++) {
+    for (let i = nInicial; i <= nFinal; i++) {
       if (i % nDivisible == 0) {
         nsDivisibles += i + ", ";
       }
@@ -116,13 +117,14 @@ function primos() {
     while (contador <= cantidadPrimos) {
       let primo = true;
 
-      if (cantidad == 0 || cantidad == 1 || cantidad == 4) {
+      if (cantidad == 0 || cantidad == 1) {
         primo = false;
       }
 
       for (let x = 2; x < cantidad; x++) {
         if (cantidad % x == 0) {
           primo = false;
+          break;
         }
       }
 
